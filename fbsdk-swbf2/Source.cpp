@@ -10,6 +10,8 @@ extern "C" __declspec(dllexport) void AddExtension(chaiscript::ChaiScript* chai)
 	chai->add(chaiscript::user_type<sdk::ClientLevel>(), "ClientLevel");
 	chai->add(chaiscript::fun(static_cast<sdk::PlayerAbilityAsset(sdk::ClientLevel::*)(const std::string)>(&sdk::ClientLevel::GetPlayerAbilityAsset)), "getPlayerAbilityAsset");
 	chai->add(chaiscript::fun(&sdk::ClientLevel::DumpAbilities), "dumpAbilities");
+	chai->add(chaiscript::fun(&sdk::ClientLevel::levelName), "levelName");
+	chai->add(chaiscript::fun(&sdk::ClientLevel::matchName), "matchName");
 
 	chai->add(chaiscript::user_type<sdk::Soldier>(), "Soldier");
 	chai->add(chaiscript::fun(&sdk::Soldier::GetOverrideVelocity), "overrideVelocity");

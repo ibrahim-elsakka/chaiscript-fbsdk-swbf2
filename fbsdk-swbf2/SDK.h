@@ -64,6 +64,17 @@ namespace sdk {
 			}
 		}
 
+		std::string levelName() {
+			if (!IsValidPtr(this->pClientLevel)) return "Invalid";
+			return this->pClientLevel->LevelName;
+		}
+
+		std::string matchName() {
+			if (!IsValidPtr(this->pClientLevel)) return "Invalid";
+			if (!IsValidPtr(this->pClientLevel->matchInfo)) return "Invalid";
+			return this->pClientLevel->matchInfo->gameMode;
+		}
+
 	};
 
 
@@ -128,6 +139,7 @@ namespace sdk {
 			if (!IsValidPtr(this->pClientPlayer->controlledControllable->soldierWeaponComponent->soldierWeaponsComponentData->soldierAimingSimulationData->zoomData->zoomLevelData[0])) return 0;
 			return this->pClientPlayer->controlledControllable->soldierWeaponComponent->soldierWeaponsComponentData->soldierAimingSimulationData->zoomData->zoomLevelData[0]->m_MoveSPeedMultiplier;
 		}
+
 
 	};
 
